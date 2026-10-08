@@ -1,26 +1,57 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/*
+ * Tailwind v4 is configured CSS-first — there is no tailwind.config.js.
+ * Design tokens live in the @theme blocks below.
+ */
+@theme {
+  --color-brand-cream: #fbf9f5;
+  --color-brand-alabaster: #f6f3ed;
+  --color-brand-pearl: #efeae1;
+  --color-brand-gold: #c5a880;
+  --color-brand-gold-hover: #b3946b;
+  --color-brand-gold-light: #f8f4ee;
+  --color-brand-charcoal: #231f20;
+  --color-brand-muted: #7a7571;
+  --color-brand-border: #e8e2d8;
+
+  --shadow-luxury: 0 20px 45px -15px rgba(110, 93, 76, 0.07);
+  --shadow-luxury-lg: 0 25px 50px -12px rgba(84, 70, 56, 0.12);
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-cormorant), "Playfair Display", serif;
+  --font-sans: var(--font-montserrat), system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
+/*
+ * Subtle luxury marble and silk gradient background, layered over the
+ * showroom photograph provided by the design.
+ */
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: #faf7f2;
+  background-image:
+    linear-gradient(rgba(250, 247, 242, 0.82), rgba(246, 243, 237, 0.88)),
+    url("https://lh3.googleusercontent.com/aida-public/AB6AXuD9rWQOE3ZrRuicztAZGbRk5FdCSyY38nOZ8E6pXwSEYKZNVwLG9v2vF-yNhFHb1T2WnbQlalLbepp2g-Eu7jJhK1LBqn-WHw_FKK5cv378ZV6HELPjG-LMtA0zt4NvVPh4ONYZo4RppYC6zDQS5xxB_q5SDM75qB3kTZWtmMJeUWZS7yIJxpvqiEEkeO3G_5A12PB89bdNMy7g2x7M8WSRDBoMT3nmJtpzYmWk2vahjVnKzIrAaQxF");
+  background-size: cover;
+  background-position: center center;
+  background-attachment: fixed;
+}
+
+/* Custom input styling */
+.lux-input {
+  transition: all 0.25s ease-in-out;
+  border-color: #e2dbd0;
+  background-color: #ffffff;
+}
+.lux-input:focus {
+  border-color: #c5a880;
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(197, 168, 128, 0.18);
+}
+
+/* Radio button custom tint */
+.custom-radio:checked {
+  background-color: #231f20;
+  border-color: #231f20;
 }
