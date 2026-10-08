@@ -3,9 +3,6 @@
 import Image from "next/image";
 import { useState } from "react";
 
-const HERO_SRC =
-  "https://lh3.googleusercontent.com/aida-public/AB6AXuBDHDedPwS3c2QKAdN6m0IdcFIhn2v6nYnlT1AIKClcj8EWk6EQ6EdLC_U4GMLxWh1Y3-HTP-7WweuR_4aCOOkwLr2vbl8i2wX4616L--PTAtLnDhNgwkQ-_NEGAANLL6-gYkF_bIxWaZBsfNgq5TizrujV5KoPwpAoZnEXj6iUrMfzwLxOWzAzpZm0NLkho9kr-O2u2DMOc1yBtwToKIt9sCFR-a185vXVtVjranOrcRpDuvtO01hm";
-
 const SHIPPING_COST = 5.0;
 
 function formatPrice(value: number) {
@@ -28,66 +25,50 @@ export default function CheckoutForm() {
   return (
     <main className="flex-grow py-8 md:py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-7xl mx-auto">
-        {/* Hero / Flow Indicator banner */}
-        <div className="mb-8 relative overflow-hidden rounded-2xl border border-brand-border/80 shadow-luxury-lg bg-brand-alabaster group">
-          <div className="relative w-full h-56 sm:h-72 md:h-80 lg:h-96 overflow-hidden">
+        {/* Bannière */}
+        <div className="mb-8 relative overflow-hidden rounded-2xl border border-brand-border/60 shadow-luxury-lg">
+          <div className="relative w-full h-[340px] sm:h-[440px] md:h-[520px] lg:h-[580px] overflow-hidden">
             <Image
               alt="Oh My Dress Showroom"
-              className="object-cover object-center transform duration-700 group-hover:scale-105"
-              src={HERO_SRC}
+              className="object-cover object-center"
+              src="/brand/showroom.jpg"
               fill
               priority
               sizes="(max-width: 1280px) 100vw, 1280px"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-black/30 to-black/10"></div>
-            <div className="absolute inset-0 bg-gradient-to-r from-black/60 via-black/20 to-transparent"></div>
-            <div className="absolute top-4 sm:top-6 left-4 sm:left-6 right-4 sm:right-6 flex items-center justify-between gap-3">
-              <div className="inline-flex items-center gap-2">
-                <span className="text-[10px] sm:text-xs tracking-widest uppercase font-semibold text-white bg-black/40 px-3 py-1 rounded-full backdrop-blur-md border border-white/20 shadow-sm">
-                  Showroom Privé • Live Checkout
-                </span>
-              </div>
-              <div className="flex items-center gap-2 text-xs text-white bg-black/40 backdrop-blur-md px-3 py-1 rounded-full border border-white/20 shadow-sm">
-                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
-                <span className="font-medium tracking-wide">
-                  Session Live Active
-                </span>
-              </div>
+            <div className="absolute inset-0 bg-gradient-to-tr from-[#faf7f2]/85 from-5% via-[#faf7f2]/20 via-45% to-transparent"></div>
+            <div className="absolute inset-0 bg-gradient-to-t from-[#faf7f2]/60 via-transparent to-transparent"></div>
+            <div className="absolute top-5 right-5 flex items-center gap-2 text-xs text-brand-charcoal bg-white/70 backdrop-blur-md px-3 py-1 rounded-full border border-white/70 shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="font-medium tracking-wide">En direct</span>
             </div>
-            <div className="absolute bottom-4 sm:bottom-6 left-4 sm:left-6 right-4 sm:right-6">
-              <div className="bg-white/90 backdrop-blur-md rounded-xl p-4 sm:p-6 border border-white/90 shadow-luxury max-w-2xl">
-                <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl text-brand-charcoal drop-shadow-sm leading-tight">
-                  Finalisation de Commande{" "}
-                  <span className="block sm:inline text-base sm:text-xl md:text-2xl font-normal text-brand-muted">
-                    / Live Order Checkout
-                  </span>
-                </h1>
-                <p className="mt-1 text-xs sm:text-sm text-brand-muted">
-                  Paiement sécurisé de vos pièces sélectionnées en direct lors
-                  de notre vente exclusive TikTok.
-                </p>
-              </div>
+            <div className="absolute bottom-0 left-0 p-8 sm:p-12 max-w-xl">
+              <p className="text-[11px] tracking-[0.35em] uppercase text-brand-gold-hover font-semibold">
+                Showroom privé
+              </p>
+              <h1 className="mt-3 font-serif text-4xl sm:text-5xl md:text-6xl font-medium text-brand-charcoal leading-[1.05] drop-shadow-[0_1px_14px_rgba(250,247,242,0.95)]">
+                Finalisation de commande
+              </h1>
+              <p className="mt-3 text-sm sm:text-base text-brand-muted drop-shadow-[0_1px_10px_rgba(250,247,242,0.95)]">
+                Paiement sécurisé de votre commande passée en direct.
+              </p>
             </div>
           </div>
         </div>
 
         <nav className="mb-8 flex items-center justify-center sm:justify-start space-x-3 text-xs uppercase tracking-widest text-brand-muted">
-          <span className="text-brand-charcoal font-medium">
-            1. Panier / Cart
-          </span>
+          <span className="text-brand-charcoal font-medium">Panier</span>
           <span>/</span>
-          <span className="text-brand-gold font-bold">
-            2. Coordonnées &amp; Livraison / Details &amp; Shipping
-          </span>
+          <span className="text-brand-gold font-bold">Livraison</span>
           <span>/</span>
-          <span>3. Confirmation</span>
+          <span>Confirmation</span>
         </nav>
 
         {/* Grid: Left side Form & Right side Summary */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
           {/* ======================= LEFT COLUMN: Forms ======================= */}
           <div className="lg:col-span-7 space-y-8">
-            {/* Section 1: Montant total & Infos Commande */}
+            {/* Section 1: Montant & référence */}
             <section
               className="bg-white/95 rounded-2xl p-6 sm:p-8 shadow-luxury border border-brand-border/70 backdrop-blur-sm"
               data-purpose="order-details-section"
@@ -98,14 +79,11 @@ export default function CheckoutForm() {
                     1
                   </span>
                   <h2 className="font-serif text-2xl md:text-3xl font-medium tracking-tight text-brand-charcoal">
-                    Montant total &amp; Références{" "}
-                    <span className="text-lg md:text-xl font-normal text-brand-muted">
-                      / Total Amount &amp; References
-                    </span>
+                    Montant &amp; référence
                   </h2>
                 </div>
                 <span className="text-xs uppercase text-brand-gold font-semibold tracking-wider">
-                  Étape / Step 1/3
+                  Étape 1/3
                 </span>
               </div>
               <div className="grid grid-cols-1 gap-5">
@@ -114,7 +92,7 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="montant-field"
                   >
-                    Montant convenu en live / Agreed live amount{" "}
+                    Montant convenu en direct{" "}
                     <span className="text-red-500">*</span>
                   </label>
                   <div className="relative rounded-xl shadow-sm">
@@ -136,23 +114,19 @@ export default function CheckoutForm() {
                       </span>
                     </div>
                   </div>
-                  <p className="mt-1 text-[11px] text-brand-muted">
-                    Indiquez le montant validé lors du live TikTok avec la
-                    vendeuse / Enter the amount agreed during TikTok live.
-                  </p>
                 </div>
                 <div>
                   <label
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="order-ref"
                   >
-                    Référence de commande / Order reference
+                    Référence
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
                     id="order-ref"
                     name="order_reference"
-                    placeholder="Ex : OMD-LIVE-4982"
+                    placeholder="OMD-LIVE-4982"
                     type="text"
                   />
                 </div>
@@ -161,16 +135,16 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="order-item"
                   >
-                    Article commandé / Ordered item{" "}
+                    Article{" "}
                     <span className="text-brand-muted font-normal lowercase">
-                      (facultatif / optional)
+                      (facultatif)
                     </span>
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
                     id="order-item"
                     name="article_name"
-                    placeholder="Ex : Robe de soirée dorée / Golden evening dress - M"
+                    placeholder="Robe de soirée dorée — M"
                     type="text"
                   />
                 </div>
@@ -179,8 +153,7 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="tiktok-user"
                   >
-                    Nom d&apos;utilisateur TikTok / TikTok username{" "}
-                    <span className="text-red-500">*</span>
+                    Pseudo TikTok <span className="text-red-500">*</span>
                   </label>
                   <div className="relative rounded-xl">
                     <div className="pointer-events-none absolute inset-y-0 left-0 flex items-center pl-4 text-brand-muted font-medium text-sm">
@@ -190,21 +163,16 @@ export default function CheckoutForm() {
                       className="lux-input block w-full rounded-xl py-3 pl-9 pr-4 text-sm text-brand-charcoal placeholder-gray-400"
                       id="tiktok-user"
                       name="tiktok_username"
-                      placeholder="votre_pseudo_tiktok / your_tiktok_handle"
+                      placeholder="votre_pseudo"
                       required
                       type="text"
                     />
                   </div>
-                  <p className="mt-1 text-[11px] text-brand-muted">
-                    Permet à notre équipe d&apos;identifier instantanément votre
-                    panier du live / Helps our team match your live cart
-                    instantly.
-                  </p>
                 </div>
               </div>
             </section>
 
-            {/* Section 2: Shipping Address */}
+            {/* Section 2: Adresse de livraison */}
             <section
               className="bg-white/95 rounded-2xl p-6 sm:p-8 border border-brand-border/70 shadow-luxury backdrop-blur-sm"
               data-purpose="shipping-address-section"
@@ -215,14 +183,11 @@ export default function CheckoutForm() {
                     2
                   </span>
                   <h2 className="font-serif text-2xl md:text-3xl font-medium tracking-tight text-brand-charcoal">
-                    Adresse de livraison{" "}
-                    <span className="text-lg md:text-xl font-normal text-brand-muted">
-                      / Shipping Address
-                    </span>
+                    Adresse de livraison
                   </h2>
                 </div>
                 <span className="text-xs uppercase text-brand-gold font-semibold tracking-wider">
-                  Étape / Step 2/3
+                  Étape 2/3
                 </span>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-5">
@@ -231,14 +196,13 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="email-addr"
                   >
-                    Adresse e-mail / Email address{" "}
-                    <span className="text-red-500">*</span>
+                    E-mail <span className="text-red-500">*</span>
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
                     id="email-addr"
                     name="email"
-                    placeholder="nom@exemple.com / name@example.com"
+                    placeholder="nom@exemple.com"
                     required
                     type="email"
                   />
@@ -248,7 +212,7 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="first-name"
                   >
-                    Prénom / First name <span className="text-red-500">*</span>
+                    Prénom <span className="text-red-500">*</span>
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
@@ -264,7 +228,7 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="last-name"
                   >
-                    Nom / Last name <span className="text-red-500">*</span>
+                    Nom <span className="text-red-500">*</span>
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
@@ -280,7 +244,7 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="country"
                   >
-                    Pays / Country <span className="text-red-500">*</span>
+                    Pays <span className="text-red-500">*</span>
                   </label>
                   <select
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal cursor-pointer"
@@ -289,15 +253,13 @@ export default function CheckoutForm() {
                     defaultValue="FR"
                   >
                     <option value="FR">France métropolitaine</option>
-                    <option value="BE">Belgique / Belgium</option>
+                    <option value="BE">Belgique</option>
                     <option value="LU">Luxembourg</option>
-                    <option value="DE">Allemagne / Germany</option>
-                    <option value="ES">Espagne / Spain</option>
-                    <option value="CH">Suisse / Switzerland</option>
-                    <option value="GB">
-                      Royaume-Uni / United Kingdom
-                    </option>
-                    <option value="US">États-Unis / United States</option>
+                    <option value="DE">Allemagne</option>
+                    <option value="ES">Espagne</option>
+                    <option value="CH">Suisse</option>
+                    <option value="GB">Royaume-Uni</option>
+                    <option value="US">États-Unis</option>
                   </select>
                 </div>
                 <div className="md:col-span-2">
@@ -305,14 +267,13 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="street-address"
                   >
-                    Adresse postale / Street address{" "}
-                    <span className="text-red-500">*</span>
+                    Adresse <span className="text-red-500">*</span>
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
                     id="street-address"
                     name="address1"
-                    placeholder="Numéro et nom de rue / Street name and number"
+                    placeholder="N° et nom de rue"
                     required
                     type="text"
                   />
@@ -322,16 +283,16 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="address2"
                   >
-                    Complément d&apos;adresse / Apartment, suite, etc.{" "}
+                    Complément{" "}
                     <span className="text-brand-muted font-normal lowercase">
-                      (facultatif / optional)
+                      (facultatif)
                     </span>
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
                     id="address2"
                     name="address2"
-                    placeholder="Appartement, bâtiment, interphone... / Apt, floor, building"
+                    placeholder="Bâtiment, étage, interphone…"
                     type="text"
                   />
                 </div>
@@ -340,8 +301,7 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="postal-code"
                   >
-                    Code postal / Postal code{" "}
-                    <span className="text-red-500">*</span>
+                    Code postal <span className="text-red-500">*</span>
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
@@ -357,7 +317,7 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="city"
                   >
-                    Ville / City <span className="text-red-500">*</span>
+                    Ville <span className="text-red-500">*</span>
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
@@ -373,17 +333,13 @@ export default function CheckoutForm() {
                     className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                     htmlFor="phone-number"
                   >
-                    Numéro de portable / Phone number{" "}
-                    <span className="text-brand-muted font-normal text-[11px]">
-                      (pour notification SMS / for SMS alerts)
-                    </span>{" "}
-                    <span className="text-red-500">*</span>
+                    Téléphone <span className="text-red-500">*</span>
                   </label>
                   <input
                     className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-brand-charcoal placeholder-gray-400"
                     id="phone-number"
                     name="phone"
-                    placeholder="06 12 34 56 78 / +33 6..."
+                    placeholder="06 12 34 56 78"
                     required
                     type="tel"
                   />
@@ -391,7 +347,7 @@ export default function CheckoutForm() {
               </div>
             </section>
 
-            {/* Section 3: Delivery Method (Mondial Relay) */}
+            {/* Section 3: Mode de livraison (Mondial Relay) */}
             <section
               className="bg-white/95 rounded-2xl p-6 sm:p-8 border border-brand-border/70 shadow-luxury backdrop-blur-sm"
               data-purpose="shipping-method-section"
@@ -401,20 +357,16 @@ export default function CheckoutForm() {
                   3
                 </span>
                 <h2 className="font-serif text-2xl md:text-3xl font-medium tracking-tight text-brand-charcoal">
-                  Mode de livraison{" "}
-                  <span className="text-lg md:text-xl font-normal text-brand-muted">
-                    / Shipping Method
-                  </span>
+                  Mode de livraison
                 </h2>
               </div>
               <div className="mb-5 bg-[#FAF3E9] border border-[#E9D9C3] rounded-xl p-3.5 sm:p-4 flex items-center gap-3">
                 <span className="text-xl">🚚</span>
                 <p className="text-xs sm:text-sm text-[#7D5E37] font-medium leading-relaxed">
                   <strong className="font-semibold text-brand-charcoal">
-                    Offre Spéciale Live / Live Special :
+                    Offre spéciale :
                   </strong>{" "}
-                  Frais de port offerts dès la 2ème commande groupée durant ce
-                  live ! / Free shipping on grouped orders during this live!
+                  frais de port offerts dès la 2ᵉ commande groupée.
                 </p>
               </div>
               <div className="relative border-2 border-brand-gold/80 bg-brand-cream/40 rounded-xl p-4 sm:p-5 flex flex-col gap-4 shadow-sm">
@@ -433,12 +385,10 @@ export default function CheckoutForm() {
                         className="font-semibold text-base text-brand-charcoal block cursor-pointer"
                         htmlFor="relay-option"
                       >
-                        Mondial Relay - En Point Relais &amp; Locker / Pick-up
-                        Point &amp; Locker
+                        Mondial Relay — Point Relais
                       </label>
                       <p className="text-xs text-brand-muted mt-0.5">
-                        Délai estimé : 3 à 5 jours ouvrés / Estimated delivery:
-                        3 to 5 business days
+                        3 à 5 jours ouvrés
                       </p>
                     </div>
                   </div>
@@ -471,12 +421,10 @@ export default function CheckoutForm() {
                     </svg>
                     <div>
                       <div className="text-xs font-semibold text-brand-charcoal">
-                        Point Relais sélectionné automatiquement /
-                        Auto-selected pick-up point
+                        Point relais automatique
                       </div>
                       <div className="text-[11px] text-brand-muted">
-                        Le plus proche de votre adresse (modifiable par SMS) /
-                        Nearest location (modifiable via SMS)
+                        Le plus proche · modifiable par SMS
                       </div>
                     </div>
                   </div>
@@ -484,13 +432,13 @@ export default function CheckoutForm() {
                     className="text-xs font-medium uppercase tracking-wider text-brand-charcoal underline hover:text-brand-gold transition self-start sm:self-auto"
                     type="button"
                   >
-                    Changer de point relais / Change pick-up point
+                    Changer
                   </button>
                 </div>
               </div>
             </section>
 
-            {/* Section 4: Payment Details */}
+            {/* Section 4: Paiement */}
             <section
               className="bg-white/95 rounded-2xl p-6 sm:p-8 border border-brand-border/70 shadow-luxury backdrop-blur-sm"
               data-purpose="payment-section"
@@ -501,10 +449,7 @@ export default function CheckoutForm() {
                     4
                   </span>
                   <h2 className="font-serif text-2xl md:text-3xl font-medium tracking-tight text-brand-charcoal">
-                    Mode de paiement{" "}
-                    <span className="text-lg md:text-xl font-normal text-brand-muted">
-                      / Payment Method
-                    </span>
+                    Paiement
                   </h2>
                 </div>
                 <div className="flex items-center space-x-2">
@@ -535,11 +480,9 @@ export default function CheckoutForm() {
                     className="text-xs sm:text-sm font-semibold text-brand-charcoal flex items-center justify-between w-full cursor-pointer"
                     htmlFor="pay-card"
                   >
-                    <span>
-                      Carte bancaire / Credit Card (Visa, Mastercard)
-                    </span>
+                    <span>Carte bancaire</span>
                     <span className="text-brand-gold text-xs font-normal">
-                      Chiffrement 3D Secure
+                      3D Secure
                     </span>
                   </label>
                 </div>
@@ -549,13 +492,13 @@ export default function CheckoutForm() {
                       className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                       htmlFor="card-holder"
                     >
-                      Nom inscrit sur la carte / Name on card
+                      Nom sur la carte
                     </label>
                     <input
                       className="lux-input block w-full rounded-xl py-3 px-4 text-sm uppercase placeholder-gray-400"
                       id="card-holder"
                       name="cardholder"
-                      placeholder="MME CAMILLE LAURENT / JANE DOE"
+                      placeholder="MME CAMILLE LAURENT"
                       type="text"
                     />
                   </div>
@@ -564,7 +507,7 @@ export default function CheckoutForm() {
                       className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                       htmlFor="card-num"
                     >
-                      Numéro de carte de paiement / Card number
+                      Numéro de carte
                     </label>
                     <div className="relative">
                       <input
@@ -606,14 +549,14 @@ export default function CheckoutForm() {
                         className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5"
                         htmlFor="card-expiry"
                       >
-                        Date d&apos;expiration / Expiration
+                        Expiration
                       </label>
                       <input
                         className="lux-input block w-full rounded-xl py-3 px-4 text-sm text-center placeholder-gray-400"
                         id="card-expiry"
                         maxLength={5}
                         name="expiry"
-                        placeholder="MM / AA (MM / YY)"
+                        placeholder="MM / AA"
                         type="text"
                       />
                     </div>
@@ -622,9 +565,9 @@ export default function CheckoutForm() {
                         className="block text-xs uppercase tracking-wider font-semibold text-brand-charcoal mb-1.5 flex items-center justify-between"
                         htmlFor="card-cvc"
                       >
-                        <span>Code CVC / CVC Code</span>
+                        <span>CVC</span>
                         <span className="text-[10px] text-brand-muted font-normal">
-                          3 chiffres au dos / 3 digits
+                          3 chiffres au dos
                         </span>
                       </label>
                       <input
@@ -648,23 +591,14 @@ export default function CheckoutForm() {
                       type="checkbox"
                     />
                     <span className="text-xs text-brand-muted leading-relaxed">
-                      J&apos;accepte sans réserve les{" "}
+                      J&apos;accepte les{" "}
                       <a
                         className="underline text-brand-charcoal hover:text-brand-gold"
                         href="#"
                       >
                         conditions générales de vente
-                      </a>{" "}
-                      et confirme avoir vérifié l&apos;exactitude des
-                      informations fournies lors du live. / I agree to the{" "}
-                      <a
-                        className="underline text-brand-charcoal hover:text-brand-gold"
-                        href="#"
-                      >
-                        terms and conditions
-                      </a>{" "}
-                      and confirm the accuracy of information provided during
-                      the live.
+                      </a>
+                      .
                     </span>
                   </label>
                 </div>
@@ -672,28 +606,25 @@ export default function CheckoutForm() {
             </section>
           </div>
 
-          {/* ======================= RIGHT COLUMN: Order Summary (Sticky) ======================= */}
-          <aside className="lg:col-span-5 lg:sticky lg:top-28 space-y-6">
+          {/* ======================= RIGHT COLUMN: Récapitulatif (Sticky) ======================= */}
+          <aside className="lg:col-span-5 lg:sticky lg:top-32 space-y-6">
             <div
               className="bg-white/95 rounded-2xl p-6 sm:p-8 shadow-luxury-lg border border-brand-border/90 backdrop-blur-md"
               data-purpose="payment-summary-card"
             >
               <h2 className="font-serif text-2xl md:text-3xl font-medium tracking-tight text-brand-charcoal pb-4 border-b border-brand-border/70">
-                Récapitulatif du paiement{" "}
-                <span className="text-lg font-normal text-brand-muted">
-                  / Order Summary
-                </span>
+                Récapitulatif
               </h2>
               <div className="py-5 space-y-3.5 text-sm">
                 <div className="flex items-center justify-between text-brand-muted">
-                  <span>Sous-total articles / Items subtotal</span>
+                  <span>Sous-total</span>
                   <span className="font-medium text-brand-charcoal">
                     {formatPrice(subtotal)}
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-brand-muted">
                   <div className="flex items-center gap-1.5">
-                    <span>Livraison Mondial Relay / Shipping</span>
+                    <span>Livraison</span>
                     <span className="text-[10px] px-1.5 py-0.5 rounded bg-brand-alabaster text-brand-muted border border-brand-border">
                       3-5 j
                     </span>
@@ -703,24 +634,17 @@ export default function CheckoutForm() {
                   </span>
                 </div>
                 <div className="flex items-center justify-between text-brand-muted text-xs">
-                  <span>TVA incluse (20%) / VAT included</span>
+                  <span>TVA incluse (20 %)</span>
                   <span>{formatPrice(vat)}</span>
                 </div>
                 <div className="pt-4 border-t border-brand-border/70">
                   <div className="flex items-baseline justify-between">
-                    <div>
-                      <span className="font-serif text-xl sm:text-2xl font-bold text-brand-charcoal block">
-                        Total TTC / Total
-                      </span>
-                      <span className="text-[11px] text-brand-muted uppercase tracking-wider">
-                        Paiement sécurisé / Instant secure payment
-                      </span>
-                    </div>
-                    <div className="text-right">
-                      <span className="font-serif text-3xl font-extrabold text-brand-charcoal">
-                        {formatPrice(total)}
-                      </span>
-                    </div>
+                    <span className="font-serif text-xl sm:text-2xl font-bold text-brand-charcoal">
+                      Total TTC
+                    </span>
+                    <span className="font-serif text-3xl font-extrabold text-brand-charcoal">
+                      {formatPrice(total)}
+                    </span>
                   </div>
                 </div>
               </div>
@@ -743,9 +667,7 @@ export default function CheckoutForm() {
                       strokeWidth="2"
                     ></path>
                   </svg>
-                  <span>
-                    Payer maintenant / Pay Now • {formatPrice(total)}
-                  </span>
+                  <span>Payer • {formatPrice(total)}</span>
                 </button>
               </div>
               <div className="mt-6 pt-6 border-t border-brand-border/60 space-y-3.5">
@@ -765,15 +687,9 @@ export default function CheckoutForm() {
                       ></path>
                     </svg>
                   </div>
-                  <div className="text-xs">
-                    <strong className="font-semibold text-brand-charcoal block">
-                      Paiement 100% Sécurisé / 100% Secure Payment
-                    </strong>
-                    <span className="text-brand-muted">
-                      Protocole 3-D Secure avec vérification bancaire /
-                      3D-Secure certified.
-                    </span>
-                  </div>
+                  <strong className="text-xs font-semibold text-brand-charcoal">
+                    Paiement sécurisé
+                  </strong>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-brand-alabaster flex items-center justify-center text-brand-gold shrink-0">
@@ -791,15 +707,9 @@ export default function CheckoutForm() {
                       ></path>
                     </svg>
                   </div>
-                  <div className="text-xs">
-                    <strong className="font-semibold text-brand-charcoal block">
-                      Envoi soigné sous 24h à 48h / Dispatched in 24-48h
-                    </strong>
-                    <span className="text-brand-muted">
-                      Colis confectionnés dans notre showroom / Prepared with
-                      care in our showroom.
-                    </span>
-                  </div>
+                  <strong className="text-xs font-semibold text-brand-charcoal">
+                    Envoi sous 24–48 h
+                  </strong>
                 </div>
                 <div className="flex items-center gap-3">
                   <div className="w-8 h-8 rounded-full bg-brand-alabaster flex items-center justify-center text-brand-gold shrink-0">
@@ -817,29 +727,16 @@ export default function CheckoutForm() {
                       ></path>
                     </svg>
                   </div>
-                  <div className="text-xs">
-                    <strong className="font-semibold text-brand-charcoal block">
-                      Service Client Réactif / Responsive Support
-                    </strong>
-                    <span className="text-brand-muted">
-                      Assistance directe via TikTok DM ou email / Direct live
-                      chat or email.
-                    </span>
-                  </div>
+                  <strong className="text-xs font-semibold text-brand-charcoal">
+                    Service client réactif
+                  </strong>
                 </div>
               </div>
             </div>
 
-            {/* Customer Service Note Card */}
+            {/* Note service client */}
             <div className="bg-brand-pearl/40 rounded-xl p-4 border border-brand-border/60 text-center text-xs text-brand-muted">
-              <p>
-                Une question concernant votre commande en cours de direct ? /
-                Question about your live order?
-              </p>
-              <p className="mt-1 font-medium text-brand-charcoal">
-                Écrivez-nous en direct sur TikTok ou via notre formulaire de
-                contact / Contact us directly via TikTok DM or contact form.
-              </p>
+              Une question sur votre commande ? Écrivez-nous sur TikTok.
             </div>
           </aside>
         </div>
